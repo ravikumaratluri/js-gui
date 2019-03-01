@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Interactive App</title>
+  <title>String Comparer</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
   <!-- Bootstrap core CSS -->
@@ -15,19 +15,15 @@
 <body>
   <main class="container-fluid">
 
-    <h1>JavaScript for interactive apps!</h1>
-    <h3>Right-click / Inspect, then select console</h3>
+    <h1>Given 2 text strings from the user</h1>
+    <h3>display the longest length</h3>
 
-    <p>Enter your name:
-      <input id="guest" type="text" value="Eden">
+    <p>Enter First String:
+      <input id="firstNumber">
     </p>
 
-    <p>Enter first number:
-      <input id="firstNumber" type="number" value="7">
-    </p>
-
-    <p>Enter second number:
-      <input id="secondNumber" type="number" value="12">
+    <p>Enter second String:
+      <input id="secondNumber" >
     </p>
 
     <button id="clicker" class="btn btn-primary">Click me!</button>
@@ -41,20 +37,20 @@
 
     console.log('Declare testable functions.....................')
 
-    function add(x, y) {
-      return x + y
+    function compare(x, y) {
+      return Math.max(x.length, y.length)
     }
-    console.log('Defined add=' + add)
+    console.log('Defined add=' + compare)
 
     console.log('Declare event listeners .......................')
 
     document.getElementById('clicker').addEventListener('click', function () {
-      const s = document.getElementById('guest').value
-      const i = parseInt(document.getElementById('firstNumber').value)
+      const s = document.getElementById('firstNumber').value
+      const i = document.getElementById('secondNumber').value
+      console.log('s=' + s)
       console.log('i=' + i)
-      const j = parseInt(document.getElementById('secondNumber').value)
-      console.log('j=' + j)
-      const ans = s + ', your sum is ' + add(i, j) + '.'
+      
+      const ans = 'The longest String length is ' + compare(s, i) + '.'
       document.getElementById('result').innerHTML = ans
     })
 
